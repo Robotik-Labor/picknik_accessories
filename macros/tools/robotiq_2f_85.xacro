@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:arg name="use_mock_hardware" default="True"/>
+
+  <xacro:macro name="tool"
+               params="parent_link">
+
+    <!-- Robotiq 2F Gripper -->
+    <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro"/>
+    <xacro:robotiq_gripper
+      name="RobotiqGripperHardwareInterface"
+      prefix=""
+      parent="${parent_link}"
+      use_fake_hardware="$(arg use_mock_hardware)"
+      com_port="/dev/ttyUSB0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:robotiq_gripper>
+
+    <link name="grasp_link"/>
+    <joint name="grasp_link_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="grasp_link"/>
+      <origin xyz="0.0 0.0 0.134" rpy="0.0 0.0 ${pi}"/>
+    </joint>
+
+    <!-- Moveit Studio requires a link name called manual_grasp_link to perform quick tasks such as inspect surface -->
+    <link name="manual_grasp_link"/>
+    <joint name="manual_grasp_joint" type="fixed">
+      <parent link="grasp_link"/>
+      <child link="manual_grasp_link"/>
+      <origin xyz="0 0 0" rpy="${pi / 180.0 * 5} 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>
