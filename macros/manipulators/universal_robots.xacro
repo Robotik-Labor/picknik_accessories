@@ -23,7 +23,7 @@
    <xacro:arg name="output_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"/>
    <xacro:arg name="input_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_input_recipe.txt"/>
 
-   <xacro:arg name="use_mock_hardware" default="True"/>
+   <xacro:arg name="use_fake_hardware" default="True"/>
 
    <!-- initial position for simulations (Mock Hardware, Gazebo, Ignition) -->
    <xacro:arg name="initial_positions_file" default="$(find ur_description)/config/initial_positions.yaml"/>
@@ -41,7 +41,7 @@
     kinematics_parameters_file="$(arg kinematics_parameters_file)"
     physical_parameters_file="$(arg physical_parameters_file)"
     visual_parameters_file="$(arg visual_parameters_file)"
-    use_fake_hardware="$(arg use_mock_hardware)"
+    use_fake_hardware="$(arg use_fake_hardware)"
     initial_positions="${xacro.load_yaml(initial_positions_file)}"
     headless_mode="$(arg headless_mode)"
     robot_ip="$(arg robot_ip)"
