@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
-  <xacro:arg name="use_mock_hardware" default="True"/>
+  <xacro:arg name="use_fake_hardware" default="True"/>
 
   <xacro:macro name="tool"
                params="parent_link">
@@ -12,7 +12,7 @@
       name="RobotiqGripperHardwareInterface"
       prefix=""
       parent="${parent_link}"
-      use_fake_hardware="$(arg use_mock_hardware)"
+      use_fake_hardware="$(arg use_fake_hardware)"
       com_port="/dev/ttyUSB0">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:robotiq_gripper>
