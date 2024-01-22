@@ -4,7 +4,7 @@
   <xacro:arg name="use_fake_hardware" default="True"/>
 
   <xacro:macro name="tool"
-               params="parent_link">
+               params="parent_link com_port:=/dev/ttyUSB0">
 
     <!-- Robotiq 2F Gripper -->
     <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro"/>
@@ -13,23 +13,16 @@
       prefix=""
       parent="${parent_link}"
       use_fake_hardware="$(arg use_fake_hardware)"
-      com_port="/dev/ttyUSB0">
+      com_port="${com_port}">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:robotiq_gripper>
 
+    <!-- This frame aligns the gripper with the coordinate convention required for motion planning tasks. -->
     <link name="grasp_link"/>
     <joint name="grasp_link_joint" type="fixed">
       <parent link="${parent_link}"/>
       <child link="grasp_link"/>
       <origin xyz="0.0 0.0 0.134" rpy="0.0 0.0 ${pi}"/>
-    </joint>
-
-    <!-- Moveit Studio requires a link name called manual_grasp_link to perform quick tasks such as inspect surface -->
-    <link name="manual_grasp_link"/>
-    <joint name="manual_grasp_joint" type="fixed">
-      <parent link="grasp_link"/>
-      <child link="manual_grasp_link"/>
-      <origin xyz="0 0 0" rpy="${pi / 180.0 * 5} 0 0"/>
     </joint>
 
   </xacro:macro>
