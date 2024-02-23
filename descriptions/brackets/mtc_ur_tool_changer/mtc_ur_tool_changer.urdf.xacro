@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="mtc_ur_tool_changer" params="prefix connected_to rotation:=^|${0.0}">
+  <xacro:macro name="mtc_ur_tool_changer" params="prefix parent child rotation:=^|${0.0}">
 
     <joint name="${prefix}tool_changer_joint" type="fixed">
       <!-- The parent link must be read from the robot model it is attached to. -->
-      <parent link="${connected_to}"/>
+      <parent link="${parent}"/>
       <child link="${prefix}tool_changer_link"/>
       <origin xyz="0 0 0" rpy="0 0 ${rotation}"/>
     </joint>
@@ -29,7 +29,7 @@
       <child link="${prefix}tool_changer_tool0"/>
       <origin xyz="0 0 0.0331" rpy="0 0 0"/>
     </joint>
-    <link name="${prefix}tool_changer_tool0"/>
+    <link name="${child}"/>
 
   </xacro:macro>
 </robot>
