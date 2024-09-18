@@ -1,0 +1,109 @@
+<robotiq2f85_globals>
+  <asset>
+    <!-- Robotiq 2f85 meshes -->
+    <mesh
+      name="robotiq_85_base"
+      class="2f85"
+      file="assets/robotiq_2f85/base.stl"
+    />
+    <mesh
+      name="robotiq_85_knuckle_link"
+      class="2f85"
+      file="assets/robotiq_2f85/knuckle_link.stl"
+    />
+    <mesh
+      name="robotiq_85_inner_knuckle_link"
+      class="2f85"
+      file="assets/robotiq_2f85/inner_knuckle_link.stl"
+    />
+    <mesh
+      name="robotiq_85_finger_link"
+      class="2f85"
+      file="assets/robotiq_2f85/finger_link.stl"
+    />
+    <mesh
+      name="robotiq_85_finger_tip_link"
+      class="2f85"
+      file="assets/robotiq_2f85/finger_tip_link.stl"
+    />
+    <mesh
+      name="robotiq_85_pad"
+      class="2f85"
+      file="assets/robotiq_2f85/pad.stl"
+    />
+    <mesh
+      name="robotiq_85_silicone_pad"
+      class="2f85"
+      file="assets/robotiq_2f85/silicone_pad.stl"
+    />
+  </asset>
+
+  <actuator>
+    <general
+      class="2f85"
+      name="robotiq_85_left_knuckle_joint"
+      tendon="split"
+      forcerange="-5 5"
+      ctrlrange="0 .8"
+      gainprm="100 0 0"
+      biasprm="0 -100 -25"
+    />
+  </actuator>
+  <!-- Robotiq gripper contact -->
+  <contact>
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_left_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_left_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_right_finger_link"
+      body2="robotiq_85_right_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_left_finger_link"
+      body2="robotiq_85_left_finger_tip_link"
+    />
+  </contact>
+  <tendon>
+    <fixed name="split">
+      <joint joint="robotiq_85_right_knuckle_joint" coef="0.5" />
+      <joint joint="robotiq_85_left_knuckle_joint" coef="0.5" />
+    </fixed>
+  </tendon>
+
+  <equality>
+    <connect
+      anchor="0 0 0"
+      body1="robotiq_85_right_finger_tip_link"
+      body2="robotiq_85_right_finger_link"
+      solimp="0.95 0.99 0.001"
+      solref="0.005 1"
+    />
+    <connect
+      anchor="0 0 0"
+      body1="robotiq_85_left_finger_tip_link"
+      body2="robotiq_85_left_finger_link"
+      solimp="0.95 0.99 0.001"
+      solref="0.005 1"
+    />
+    <joint
+      joint1="robotiq_85_left_knuckle_joint"
+      joint2="robotiq_85_right_knuckle_joint"
+      polycoef="0 1 0 0 0"
+      solimp="0.95 0.99 0.001"
+      solref="0.005 1"
+    />
+  </equality>
+</robotiq2f85_globals>
