@@ -52,6 +52,9 @@
       file="assets/test_tubes_stand.png"
     />
     <texture type="2d" name="bottle_texture" file="assets/bottle.png" />
+    <texture type="2d" name="bottle_texture0" file="assets/bottle_with_tag0.png" />
+    <texture type="2d" name="bottle_texture1" file="assets/bottle_with_tag1.png" />
+    <texture type="2d" name="bottle_texture2" file="assets/bottle_with_tag2.png" />
 
     <material
       name="desk"
@@ -91,6 +94,27 @@
       shininess="0.5"
     />
 
+    <material
+      name="bottle0"
+      texture="bottle_texture0"
+      specular="0.5"
+      shininess="0.5"
+    />
+
+    <material
+      name="bottle1"
+      texture="bottle_texture1"
+      specular="0.5"
+      shininess="0.5"
+    />
+
+    <material
+      name="bottle2"
+      texture="bottle_texture2"
+      specular="0.5"
+      shininess="0.5"
+    />
+
     <mesh file="assets/desk.obj" />
     <mesh file="assets/shelf.obj" />
     <mesh file="assets/shelf_glass.obj" />
@@ -101,6 +125,9 @@
     <mesh file="assets/test_tubes_stand.obj" />
     <mesh file="assets/flask.obj" />
     <mesh file="assets/bottle.obj" />
+    <mesh file="assets/bottle_tag0.obj" />
+    <mesh file="assets/bottle_tag1.obj" />
+    <mesh file="assets/bottle_tag2.obj" />
   </asset>
 
 </lab_desk_globals>
