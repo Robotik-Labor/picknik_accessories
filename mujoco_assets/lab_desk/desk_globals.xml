@@ -1,4 +1,8 @@
-<lab_desk_globals>
+<lab_desk_globals>  
+  <option integrator="implicitfast">
+    <flag multiccd="enable" />
+  </option>
+  <option cone="elliptic" impratio="10" />
 
   <asset>
     <!-- Define textures and materials -->
