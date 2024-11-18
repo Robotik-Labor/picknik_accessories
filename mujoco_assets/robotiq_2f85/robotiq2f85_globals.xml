@@ -49,15 +49,16 @@
       biasprm="0 -100 -25"
     />
   </actuator>
+
   <!-- Robotiq gripper contact -->
   <contact>
     <exclude
       body1="robotiq_85_base_link"
-      body2="robotiq_85_left_knuckle_link"
+      body2="robotiq_85_left_finger_link"
     />
     <exclude
       body1="robotiq_85_base_link"
-      body2="robotiq_85_right_knuckle_link"
+      body2="robotiq_85_left_knuckle_link"
     />
     <exclude
       body1="robotiq_85_base_link"
@@ -65,6 +66,54 @@
     />
     <exclude
       body1="robotiq_85_base_link"
+      body2="robotiq_85_left_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_left_finger_link"
+      body2="robotiq_85_left_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_left_finger_link"
+      body2="robotiq_85_left_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_left_finger_link"
+      body2="robotiq_85_left_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_left_knuckle_link"
+      body2="robotiq_85_left_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_left_knuckle_link"
+      body2="robotiq_85_left_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_left_inner_knuckle_link"
+      body2="robotiq_85_left_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_finger_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_base_link"
+      body2="robotiq_85_right_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_right_finger_link"
+      body2="robotiq_85_right_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_right_finger_link"
       body2="robotiq_85_right_inner_knuckle_link"
     />
     <exclude
@@ -72,8 +121,16 @@
       body2="robotiq_85_right_finger_tip_link"
     />
     <exclude
-      body1="robotiq_85_left_finger_link"
-      body2="robotiq_85_left_finger_tip_link"
+      body1="robotiq_85_right_knuckle_link"
+      body2="robotiq_85_right_inner_knuckle_link"
+    />
+    <exclude
+      body1="robotiq_85_right_knuckle_link"
+      body2="robotiq_85_right_finger_tip_link"
+    />
+    <exclude
+      body1="robotiq_85_right_inner_knuckle_link"
+      body2="robotiq_85_right_finger_tip_link"
     />
   </contact>
   <tendon>
