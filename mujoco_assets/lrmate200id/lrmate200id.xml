@@ -113,8 +113,11 @@
                   name="tool0"
                   pos="0 0 0"
                   euler="3.1416 -1.5708 0"
-                  childclass="fanuc"
-                />
+                  childclass="fanuc">
+                   <geom class="collision" type="box" size="0.01 0.01 0.001" pos="0 0 -0.001" margin="0.02" gap="0.02"/>
+                   <site name="suction_cup_tool_interface" type="box" size="0.01 0.01 0.001" pos="0 0 -0.001"/>
+                </body>
+              </body>
               </body>
             </body>
           </body>
