@@ -24,7 +24,7 @@
         </collision>
     </link>
 
-    <link name="${prefix}realsense_camera_adapter_tool0"/>
+    <link name="${child_tool}"/>
 
     <joint name="${prefix}realsense_camera_adapter_tool0_joint" type="fixed">
       <parent link="${prefix}realsense_camera_adapter_link"/>
